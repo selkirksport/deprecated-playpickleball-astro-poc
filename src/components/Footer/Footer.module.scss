@@ -1,0 +1,72 @@
+@import '../../styles/mixins';
+@import '../../styles/vars';
+
+.footer {
+    width: 100vw;
+    background-color: $color-white-0;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    padding: 52px 32px 44px 32px;
+}
+
+.footerCenter {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    margin: 32px 0;
+}
+
+.copyright {
+    @include flex-center;
+    
+    height: 32px;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+}
+
+.footerBottom {
+    &__stripe {
+        height: 32px;
+        width: 100vw;
+    
+        &--blue {
+            background-color: $theme-color-blue;
+        }
+
+        &--orange {
+            background-color: $theme-color-orange;
+        }
+    }
+}
+
+.navList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    li {
+        font-size: 12px;
+        color: $font-color;
+    }
+}
+
+.footerLeft, .footerCenter, .footerRight {
+    width: 100%;
+}
+
+.socialIcons {
+    width: 135px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 135px;
+}

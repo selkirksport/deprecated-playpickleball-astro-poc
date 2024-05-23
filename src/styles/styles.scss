@@ -1,0 +1,18 @@
+
+@import './vars';
+@import './breakpoints';
+@import './fonts';
+
+body {
+    margin: 0;
+    font-family: 'Montserrat Variable', sans-serif;
+    
+    * {
+        box-sizing: border-box;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
