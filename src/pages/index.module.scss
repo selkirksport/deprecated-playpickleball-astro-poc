@@ -1,0 +1,39 @@
+@import '../styles/vars';
+@import '../styles/mixins';
+@import '../styles/breakpoints';
+
+.title {
+    font-size: 64px;
+    font-weight: 800;
+    color: $theme-color-blue;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: #252525;
+}
+
+.title, .subtitle {
+    text-align: center;
+    margin: 0;
+}
+
+.header, .postsGrid {
+    @include content-size;
+}
+
+.postsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media #{$BREAKPOINT-TABLET} {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+    }
+}

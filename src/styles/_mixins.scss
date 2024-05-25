@@ -1,5 +1,17 @@
+@import './breakpoints';
+
 @mixin flex-center { 
     display: flex;
     align-items: center;
     justify-content: center;
 } 
+
+@mixin content-size {
+    width: 100vw;
+    padding: 0 16px;
+
+    @media #{$BREAKPOINT-DESK} {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+}

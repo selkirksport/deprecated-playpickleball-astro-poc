@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+interface Post {
+  article_slug: string;
+  article_title: string;
+}
+
+export async function getStaticPaths() {
+  const response = await fetch(`${import.meta.env.PUBLIC_API_ENDPOINT}/articles?select=*`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      apikey: import.meta.env.PUBLIC_API_KEY,
+      Authorization: import.meta.env.PUBLIC_API_AUTH,
+    },
+  });
+
+  const data = await response.json();
+  if (!Array.isArray(data)) {
+    throw new Error("API response is not an array");
+  }
+
+  return data.map((post) => ({
+    params: { slug: post.article_slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props as { post: Post };
+---
+
+<Layout title="Mastering Pickleball">
+  <div>
+    Post page accessed!
+    {post.article_title}
+  </div>
+</Layout>
