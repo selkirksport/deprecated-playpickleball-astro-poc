@@ -23,13 +23,19 @@
     @include content-size;
 }
 
+.header {
+    margin-top: 64px;
+}
+
 .postsGrid {
+    margin-top: 32px;
+    list-style: none;
     display: grid;
     grid-template-columns: 1fr;
+    gap: 16px;
 
     @media #{$BREAKPOINT-TABLET} {
         grid-template-columns: 1fr 1fr;
-        gap: 16px;
     }
 
     @media #{$BREAKPOINT-TABLET-LAND} {
