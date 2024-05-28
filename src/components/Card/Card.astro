@@ -1,11 +1,11 @@
 ---
-
+import { Image } from 'astro:assets';
 import styles from './Card.module.scss';
 
 interface Props {
 	title: string;
 	description: string;
-	thumb?: string;
+	thumb: string;
 	href: string;
 	categories: [];
 }
@@ -16,7 +16,12 @@ const { href, title, description, thumb, categories } = Astro.props;
 	<a href={`/posts/${href}`}>
 		<article class={styles.articleCard}>
 			<header class={styles.header}>
-				<img class={styles.header__thumb} src={thumb} alt="Group of people playing pickleball" class="article-card__image">
+				<Image 
+					class={styles.header__thumb} 
+					src={thumb} 
+					alt="Group of people playing pickleball" 
+					inferSize
+				>
 			</header>
 			<section class={styles.articleCard__content}>
 				<h2 class={styles.articleCard__title}>{title}</h2>
