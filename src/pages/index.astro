@@ -33,9 +33,9 @@ const posts: Post[] = await response.json();
         <h2 class={styles.subtitle}>Get started learning pickleball basics and intermediate strategies</h2>
       </hgroup>
       <div class={styles.searchContainer}>
-        <FilterInput client:load/>
+        <FilterInput client:visible/>
       </div>
     </div>
-    <PostList posts={posts} client:load/>
+    <PostList posts={posts} client:visible/>
   </main>
 </Layout>
