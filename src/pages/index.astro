@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card/Card.astro';
-
+import FilterInput from '../components/FilterInput/FilterInput';
+import PostList from '../components/PostList/PostList';
 import styles from './index.module.scss';
 
 interface Post {
@@ -9,17 +9,17 @@ interface Post {
   article_title: string;
   article_desc: string;
   article_thumbnail: string;
-  categories: []
+  categories: [];
 }
 
 const response = await fetch(`${import.meta.env.PUBLIC_API_ENDPOINT}/articles?select=*`, {
   method: "GET",
   headers: {
-		"Content-Type": "application/json",
-		Accept: "application/json",
-		apikey: import.meta.env.PUBLIC_API_KEY,
-		Authorization: import.meta.env.PUBLIC_API_AUTH,
-	}
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    apikey: import.meta.env.PUBLIC_API_KEY,
+    Authorization: import.meta.env.PUBLIC_API_AUTH,
+  }
 });
 
 const posts: Post[] = await response.json();
@@ -27,22 +27,15 @@ const posts: Post[] = await response.json();
 
 <Layout title="Welcome to Astro.">
   <main>
-	<div class={styles.header}>
-		<hgroup>
-			<h1 class={styles.title}>Mastering Pickleball</h1>
-			<h2 class={styles.subtitle}>Get started learning pickleball basics and intermediate strategies</h2>
-		</hgroup>
-	</div>
-    <ul role="list" class={styles.postsGrid}>
-      {posts.map((post) => (
-        <Card
-          href={post.article_slug}
-          title={post.article_title}
-		  description={post.article_desc}
-		  thumb={post.article_thumbnail}
-		  categories={post.categories}
-        />
-      ))}
-    </ul>
+    <div class={styles.header}>
+      <hgroup>
+        <h1 class={styles.title}>Mastering Pickleball</h1>
+        <h2 class={styles.subtitle}>Get started learning pickleball basics and intermediate strategies</h2>
+      </hgroup>
+      <div class={styles.searchContainer}>
+        <FilterInput client:load/>
+      </div>
+    </div>
+    <PostList posts={posts} client:load/>
   </main>
 </Layout>

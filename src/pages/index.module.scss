@@ -19,7 +19,7 @@
     margin: 0;
 }
 
-.header, .postsGrid {
+.header {
     @include content-size;
 }
 
@@ -27,19 +27,9 @@
     margin-top: 64px;
 }
 
-.postsGrid {
-    margin-top: 32px;
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-
-    @media #{$BREAKPOINT-TABLET} {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    @media #{$BREAKPOINT-TABLET-LAND} {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 16px;
-    }
+.searchContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

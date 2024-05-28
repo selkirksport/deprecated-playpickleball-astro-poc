@@ -1,0 +1,19 @@
+@import '../../styles/vars';
+@import '../../styles/breakpoints';
+
+.searchInput {
+    margin: 32px 0;
+    width: 100%;
+    height: 38px;
+    border-radius: 8px;
+    border: 1px solid $theme-color-blue;
+
+    @media #{$BREAKPOINT-TABLET} {
+        max-width: 360px;
+    }
+
+    @media #{$BREAKPOINT-TABLET-LAND} {
+        max-width: 480px;
+    }
+
+}
