@@ -1,3 +1,7 @@
+# Why?
+The propose of this repository was to test astro framework doing a small environment and comparing with the solution we are working now (weweb).
+This tasking was already finished we are no longer using this repository. 
+
 # Astro Starter Kit: Basics
 
 ```sh
